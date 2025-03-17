@@ -2,9 +2,11 @@
 
 let listaSorteo = "";
 let listaAmigos = document.getElementById('listaAmigos'); //Asignando variable a elemento UL
+let resultado = document.getElementById('resultado'); //Se declara variable resultado, asociado al elemento UL del mismo nombre
 
 function agregarAmigo(){
     let nuevoAmigo = document.getElementById('amigo').value;
+    resultado.innerHTML = "" //Dejar vacía la variable en caso de añadir nombres para nuevo sorteo
     if (nuevoAmigo != ""){
         listaSorteo.push(nuevoAmigo); //Agregando nuevo amigo al array del sorteo
         listaAmigos.innerHTML = ""; //Vaciar lista anterior (elemento UL) para crear nueva lista
@@ -23,7 +25,6 @@ function agregarAmigo(){
 
 function sortearAmigo(){
     let numElementos = listaSorteo.length;
-    let resultado = document.getElementById('resultado'); //Se declara variable resultado, asociado al elemento UL del mismo nombre
     if (numElementos > 1){ //La función solo trabaja si es que hay 2 o más nombres registrados
         let numSorteo = parseInt(Math.floor(Math.random()*numElementos));
         listaAmigos.innerHTML = ""; //Vaciando lista para nuevo sorteo
